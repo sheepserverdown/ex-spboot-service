@@ -31,7 +31,11 @@ repositories {
 dependencies {
     //spring 종속성
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'junit:junit:4.12'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //lombok
+    implementation 'org.projectlombok:lombok'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
