@@ -1,5 +1,6 @@
 package com.github.ssdown.web;
 
+import com.github.ssdown.web.config.auth.LoginUser;
 import com.github.ssdown.web.config.auth.dto.SessionUser;
 import com.github.ssdown.web.dto.PostsResponseDto;
 import com.github.ssdown.web.service.posts.PostsService;
@@ -18,10 +19,9 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if(user != null) {
             model.addAttribute("userName", user.getName());
         }
